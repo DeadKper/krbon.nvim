@@ -27,6 +27,13 @@ function M.setup(config)
 				end
 			end
 		end
+		for key, value in pairs(copy) do
+			if type(value) == "table" then
+				deep_copy(value, copy[key])
+			else
+				tbl[key] = copy[key]
+			end
+		end
 	end
 
 	if type(config) == "table" then
