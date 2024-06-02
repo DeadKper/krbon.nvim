@@ -4,11 +4,6 @@ return {
 	bg2 = "#292929", -- Gray 100 Hover
 	bg3 = "#333333", -- Gray  90 Hover
 
-	-- bg0 = "#0b0b0b",
-	-- bg1 = "#161616", -- Gray 100
-	-- bg2 = "#202020",
-	-- bg3 = "#292929", -- Gray 100 Hover
-
 	fg0 = "#e0e0e0", -- Gray  20
 	fg1 = "#8d8d8d", -- Gray  50
 	fg2 = "#6f6f6f", -- Gray  60
