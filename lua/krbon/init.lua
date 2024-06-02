@@ -1,10 +1,6 @@
 local M = {}
 
 function M.colorscheme()
-	if not vim.g.krbon then
-		M.setup() ---@diagnostic disable-line:missing-parameter
-	end
-
 	vim.cmd.hi("clear")
 	if vim.fn.exists("syntax_on") then
 		vim.cmd("syntax reset")
