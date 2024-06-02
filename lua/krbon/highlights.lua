@@ -23,11 +23,25 @@ local function getAttrs(hl, groups)
 	end
 end
 
-local function apply(highlights)
-	if next(highlights) == nil then
-		return
-	end
+---@alias KrbonAttribute
+---| "fg"
+---| "bg"
+---| "sp"
+---| "fmt"
+---| 1
 
+---Get attribute of a highlight group
+---@param hl string
+---@param attribute KrbonAttribute
+---@param groups KrbonHighlightGroups
+---@return string|nil
+local function attr(hl, attribute, groups)
+	return getAttrs(hl, groups)[attribute]
+end
+
+---Apply highlight groups
+---@param highlights KrbonHighlightGroups
+local function apply(highlights)
 	for hl, _ in pairs(highlights) do
 		local color = getAttrs(hl, highlights)
 
@@ -202,10 +216,10 @@ function M.setup()
 		["@function.method"] = { "Function" }, -- functions
 		["@keyword"] = { "Keyword" }, -- keywords
 		["@keyword.conditional"] = { "Keyword" }, -- keywords
-		["@keyword.directive"] = { fg = c.blue },
-		["@keyword.exception"] = { fg = c.blue },
-		["@keyword.function"] = { fg = c.blue }, -- functions
-		["@keyword.import"] = { fg = c.blue },
+		["@keyword.directive"] = { "Keyword" },
+		["@keyword.exception"] = { "Keyword" },
+		["@keyword.function"] = { "Keyword" }, -- functions
+		["@keyword.import"] = { "Keyword" },
 		["@keyword.operator"] = { "Keyword" }, -- keywords
 		["@keyword.repeat"] = { "Keyword" }, -- keywords
 		["@label"] = { fg = c.magenta },
@@ -241,10 +255,10 @@ function M.setup()
 		["@note"] = { fg = c.fg0 },
 		["@warning"] = { fg = c.fg0 },
 		["@danger"] = { fg = c.fg0 },
-		["@type"] = { fg = c.magenta },
+		["@type"] = { "Type" },
 		["@type.builtin"] = { fg = c.sky },
 		["@variable"] = { fg = c.fg0 }, -- variables
-		["@variable.builtin"] = { fg = c.magenta }, -- variables
+		["@variable.builtin"] = { fg = c.sky }, -- variables
 		["@variable.member"] = { fg = c.sky },
 		["@variable.parameter"] = { fg = c.gray },
 		["@markup.heading.1.markdown"] = { fg = c.magenta, fmt = "bold" },
@@ -690,10 +704,10 @@ function M.setup()
 	local lsp_kind_icons_color = {
 		Default = c.cyan,
 		Array = c.lavender,
-		Boolean = highlights.Boolean.fg,
+		Boolean = attr("Boolean", "fg", highlights),
 		Class = c.lavender,
 		Color = c.lavender,
-		Constant = highlights.Constant.fg,
+		Constant = attr("Constant", "fg", highlights),
 		Constructor = c.blue,
 		Enum = c.cyan,
 		EnumMember = c.lavender,
@@ -709,14 +723,14 @@ function M.setup()
 		Module = c.pink,
 		Namespace = c.magenta,
 		Null = c.fg2,
-		Number = highlights.Number.fg,
+		Number = attr("Number", "fg", highlights),
 		Object = c.magenta,
-		Operator = c.magenta,
+		Operator = attr("Operator", "fg", highlights),
 		Package = c.lavender,
-		Property = c.verdigris,
+		Property = attr("@property", "fg", highlights),
 		Reference = c.pink,
 		Snippet = c.magenta,
-		String = highlights.String.fg,
+		String = attr("String", "fg", highlights),
 		Struct = c.cyan,
 		Text = c.fg1,
 		TypeParameter = c.magenta,
