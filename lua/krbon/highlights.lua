@@ -113,7 +113,7 @@ function M.setup()
 		IncSearch = { fg = c.bg0, bg = c.pink },
 		Search = { fg = c.bg0, bg = util.lighten(c.pink, 0.2) },
 		Substitute = { fg = c.bg0, bg = c.lavender },
-		MatchParen = { bg = c.none, fmt = "underline,bold" },
+		MatchParen = { bg = c.none, fmt = "underline" },
 		NonText = { fg = c.fg2 },
 		Whitespace = { fg = c.fg2 },
 		SpecialKey = { fg = c.fg2 },
