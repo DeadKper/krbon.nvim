@@ -63,17 +63,17 @@ function M.setup()
 	---@type KrbonHighlightGroups
 	local highlights = {
 		-- Transparency
-		Normal = { fg = c.fg0, bg = cfg.transparency.background and c.none or c.bg0 },
-		NormalFloat = { fg = c.fg0, bg = cfg.transparency.float and c.none or c.bg1 },
-		NormalLight = { fg = c.fg0, bg = cfg.transparency.background and c.none or c.bg1 },
+		Normal = { fg = c.fg0, bg = cfg.transparent.background and c.none or c.bg0 },
+		NormalFloat = { fg = c.fg0, bg = cfg.transparent.float and c.none or c.bg1 },
+		NormalLight = { fg = c.fg0, bg = cfg.transparent.background and c.none or c.bg1 },
 		EndOfBuffer = {
-			fg = cfg.transparency.background and c.none or (cfg.ending_tildes and c.bg2 or c.bg0),
-			bg = cfg.transparency.background and c.none or c.bg0,
+			fg = cfg.transparent.background and c.none or (cfg.ending_tildes and c.bg2 or c.bg0),
+			bg = cfg.transparent.background and c.none or c.bg0,
 		},
-		StatusLine = { fg = c.fg0, bg = cfg.transparency.statusline and c.none or c.bg2 },
-		StatusLineTerm = { fg = c.fg0, bg = cfg.transparency.statusline and c.none or c.bg2 },
-		StatusLineNC = { fg = c.fg2, bg = cfg.transparency.statusline and c.none or c.bg1 },
-		StatusLineTermNC = { fg = c.fg2, bg = cfg.transparency.statusline and c.none or c.bg1 },
+		StatusLine = { fg = c.fg0, bg = cfg.transparent.statusline and c.none or c.bg2 },
+		StatusLineTerm = { fg = c.fg0, bg = cfg.transparent.statusline and c.none or c.bg2 },
+		StatusLineNC = { fg = c.fg2, bg = cfg.transparent.statusline and c.none or c.bg1 },
+		StatusLineTermNC = { fg = c.fg2, bg = cfg.transparent.statusline and c.none or c.bg1 },
 
 		-- Vim
 		Folded = { "NormalLight" },
@@ -414,8 +414,8 @@ function M.setup()
 		-- Neotree
 		NeoTreeNormal = { "Normal" },
 		NeoTreeNormalNC = { "Normal" },
-		NeoTreeVertSplit = { fg = c.bg1, bg = cfg.transparency.background and c.none or c.bg1 },
-		NeoTreeWinSeparator = { fg = c.bg1, bg = cfg.transparency.background and c.none or c.bg1 },
+		NeoTreeVertSplit = { fg = c.bg1, bg = cfg.transparent.background and c.none or c.bg1 },
+		NeoTreeWinSeparator = { fg = c.bg1, bg = cfg.transparent.background and c.none or c.bg1 },
 		NeoTreeEndOfBuffer = { "EndOfBuffer" },
 		NeoTreeRootName = { fg = c.pink, fmt = "bold" },
 		NeoTreeGitAdded = { fg = c.green },
@@ -445,8 +445,8 @@ function M.setup()
 		NeotestUnknown = { fg = c.fg1 },
 
 		-- Nvim Tree
-		NvimTreeNormal = { fg = c.fg0, bg = cfg.transparency.background and c.none or c.bg0 },
-		NvimTreeVertSplit = { fg = c.bg0, bg = cfg.transparency.background and c.none or c.bg1 },
+		NvimTreeNormal = { fg = c.fg0, bg = cfg.transparent.background and c.none or c.bg0 },
+		NvimTreeVertSplit = { fg = c.bg0, bg = cfg.transparent.background and c.none or c.bg1 },
 		NvimTreeEndOfBuffer = { "EndOfBuffer" },
 		NvimTreeRootFolder = { fg = c.pink, fmt = "bold" },
 		NvimTreeGitDirty = { fg = c.lavender },
@@ -549,7 +549,7 @@ function M.setup()
 		MiniStarterFooter = { fg = util.darken(c.magenta, 0.2), fmt = "italic" },
 		MiniStarterHeader = { fg = c.lavender },
 		MiniStarterInactive = { fg = c.fg2 }, -- comments
-		MiniStarterItem = { fg = c.fg0, bg = cfg.transparency.background and c.none or c.bg0 },
+		MiniStarterItem = { fg = c.fg0, bg = cfg.transparent.background and c.none or c.bg0 },
 		MiniStarterItemBullet = { fg = c.fg2 },
 		MiniStarterItemPrefix = { fg = c.lavender },
 		MiniStarterSection = { fg = c.fg1 },
