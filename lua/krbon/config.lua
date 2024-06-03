@@ -11,6 +11,7 @@
 
 ---@class KrbonConfig
 ---@field ending_tildes boolean reverse item kind highlights in cmp menu
+---@field undercurl boolean reverse item kind highlights in cmp menu
 ---@field transparent KrbonConfigTransparency transparency config
 ---@field plugins KrbonConfigPlugins plugins config
 ---@field colors KrbonColors override default colors
@@ -19,6 +20,7 @@
 local M = {
 	-- Main options
 	ending_tildes = false,
+	undercurl = true,
 
 	-- Transparency options
 	transparent = {
